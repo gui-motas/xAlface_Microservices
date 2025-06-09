@@ -1,0 +1,12 @@
+# Exemplo de configuração local para desenvolvimento
+# Copie este arquivo para application-local.properties e ajuste as configurações conforme necessário
+# Este arquivo não é versionado pelo Git para manter as credenciais locais seguras
+
+# Configuração do banco de dados local
+spring.datasource.url=jdbc:postgresql://localhost:5432/userdb
+spring.datasource.username=guimas
+spring.datasource.password=
+
+# Opcional: Configurações específicas do ambiente local
+# spring.jpa.hibernate.ddl-auto=update
+# logging.level.com.xalface=DEBUG

@@ -1,0 +1,74 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "XAlfaceReservationServiceApplication",
+            "request": "launch",
+            "mainClass": "com.xalface.microservices.reservation.xAlface_ReservationService.XAlfaceReservationServiceApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-XAlfaceServiceDiscoveryApplication<xAlface_ServiceDiscovery>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.xalface.serviceDiscovery.eurekaServer.xAlface_ServiceDiscovery.XAlfaceServiceDiscoveryApplication",
+            "projectName": "xAlface_ServiceDiscovery",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=59173 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=xAlface_ServiceDiscovery"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-XAlfaceGatewayApplication<xAlface_Gateway>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.xalface.gateway.secure_api_gateway.xAlface_Gateway.XAlfaceGatewayApplication",
+            "projectName": "xAlface_Gateway",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=59182 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=xAlface_Gateway"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-XAlfaceReservationServiceApplication<xAlface_ReservationService>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.xalface.microservices.reservation.xAlface_ReservationService.XAlfaceReservationServiceApplication",
+            "projectName": "xAlface_ReservationService",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=59104 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=xAlface_ReservationService"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-XAlfaceUserServiceApplication<xAlface_UserService>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.xAlface.microservices.user.xAlface_UserService.XAlfaceUserServiceApplication",
+            "projectName": "xAlface_UserService",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-XAlfaceEmailSenderApplication<xAlface_EmailSender>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.xalface.microservices.email.xAlface_EmailSender.XAlfaceEmailSenderApplication",
+            "projectName": "xAlface_EmailSender",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-XAlfaceAuthServiceApplication<xAlface_AuthService>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.xalface.microservices.auth.xAlface_AuthService.XAlfaceAuthServiceApplication",
+            "projectName": "xAlface_AuthService",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
