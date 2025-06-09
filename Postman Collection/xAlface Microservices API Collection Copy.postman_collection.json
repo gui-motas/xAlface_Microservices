@@ -1,0 +1,570 @@
+{
+	"info": {
+		"_postman_id": "66a454fe-4986-4f88-92a4-09a3a1d89995",
+		"name": "xAlface Microservices API Collection Copy",
+		"description": "Collection for all xAlface microservices endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "35092307"
+	},
+	"item": [
+		{
+			"name": "Authentication Service",
+			"item": [
+				{
+					"name": "Login Admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"osvaldo\",\n  \"password\": \"12345\"\n}"
+						},
+						"url": "{{base_url}}/xalface-authservice/auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Login Teacher",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"fernando\",\n  \"password\": \"12345\"\n}"
+						},
+						"url": "{{base_url}}/xalface-authservice/auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Guilherme Mota\",\n  \"username\": \"guilhermemota.silva@ucsal.edu.br\",\n  \"password\": \"12345\",\n  \"role\": \"ROLE_TEACHER\",\n  \"department\": \"Computer Science\"\n}"
+						},
+						"url": "{{base_url}}/xalface-authservice/auth/register"
+					},
+					"response": []
+				},
+				{
+					"name": "Register Admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Osvaldo Requiao\",\n  \"username\": \"osvaldo\",\n  \"password\": \"12345\",\n  \"role\": \"ROLE_ADMIN\"\n  \n}"
+						},
+						"url": "{{base_url}}/xalface-authservice/auth/register"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Service - Admin",
+			"item": [
+				{
+					"name": "Get Admin by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": "{{base_url}}/xalface-userservice/user/admin/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Admin by Username",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": "{{base_url}}/xalface-userservice/user/admin/username/admin"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Admins",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": "{{base_url}}/xalface-userservice/user/admin/all"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Admin Username",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\"new_username\""
+						},
+						"url": "{{base_url}}/xalface-userservice/user/admin/1/updateUsername"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Admin Password",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\"new_password\""
+						},
+						"url": "{{base_url}}/xalface-userservice/user/admin/1/updatePassword"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Admin",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": "{{base_url}}/xalface-userservice/user/admin/delete/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Service - Teacher",
+			"item": [
+				{
+					"name": "Get Teacher by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": "{{base_url}}/xalface-userservice/user/teacher/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Teacher by Username",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": "{{base_url}}/xalface-userservice/user/teacher/username/teacher1"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Teachers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": "{{base_url}}/xalface-userservice/user/teacher/all"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Teacher Username",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\"new_username\""
+						},
+						"url": "{{base_url}}/xalface-userservice/user/teacher/1/updateUsername"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Teacher Password",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\"new_password\""
+						},
+						"url": "{{base_url}}/xalface-userservice/user/teacher/1/updatePassword"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Teacher",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": "{{base_url}}/xalface-userservice/user/teacher/delete/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Classroom Service",
+			"item": [
+				{
+					"name": "Get Classroom by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": "{{base_url}}/xalface-classroomservice/classrooms/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Classroom by Room Code",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": "{{base_url}}/xalface-classroomservice/classrooms/roomCode/A101"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Classrooms",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": "{{base_url}}/xalface-classroomservice/classrooms/all"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Classroom",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"roomCode\": \"A101\",\n  \"capacity\": 30,\n  \"isAvailable\": true,\n  \"description\": \"Computer Lab\"\n}"
+						},
+						"url": "{{base_url}}/xalface-classroomservice/classrooms"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Classroom",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"roomCode\": \"A101\",\n  \"capacity\": 35,\n  \"isAvailable\": true,\n  \"description\": \"Updated Computer Lab\"\n}"
+						},
+						"url": "{{base_url}}/xalface-classroomservice/classrooms/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Toggle Classroom Availability",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": "{{base_url}}/xalface-classroomservice/classrooms/1/toggle-availability"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Classroom",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": "{{base_url}}/xalface-classroomservice/classrooms/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reservation Service",
+			"item": [
+				{
+					"name": "Get All Reservations",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": "{{base_url}}/xalface-reservationservice/reservations"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reservation by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": "{{base_url}}/xalface-reservationservice/reservations/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reservations by Teacher ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": "{{base_url}}/xalface-reservationservice/reservations/teacher/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reservations by Classroom ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": "{{base_url}}/xalface-reservationservice/reservations/classroom/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Reservation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"teacherId\": 1,\n  \"classroomId\": 1,\n  \"startTime\": \"2024-01-15T09:00:00\",\n  \"endTime\": \"2024-01-15T11:00:00\",\n  \"purpose\": \"Computer Science Class\"\n}"
+						},
+						"url": "{{base_url}}/xalface-reservationservice/reservations"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Reservation",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"teacherId\": 1,\n  \"classroomId\": 1,\n  \"startTime\": \"2024-01-15T10:00:00\",\n  \"endTime\": \"2024-01-15T12:00:00\",\n  \"purpose\": \"Updated Computer Science Class\"\n}"
+						},
+						"url": "{{base_url}}/xalface-reservationservice/reservations/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Reservation",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": "{{base_url}}/xalface-reservationservice/reservations/1"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "localhost:8081",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ4QWxmYWNlX2F1dGgtbWljcm9zZXJ2aWNlIiwic3ViIjoiZmVybmFuZG8iLCJpZCI6MSwiZXhwIjoxNzQ5MTU5MDc5LCJpYXQiOjE3NDkxNTU0NzksInJvbGVzIjoiUk9MRV9URUFDSEVSIn0.HcDlgzLDfvwAX4Rlcda_1OzWiz7Ee-eU_M-GJpEeWzRXnSM97AH1hj_1-3nEJlcAAyjdx8McgSrGxJ9iIxtuACziWMLy9KqHrm7KeSgEPg4RFr1IbYnFMMYXFuI-2E2iOOBwIMjwZSKCnSrNQF4Qb_JzXMRTtLtfbNbo851PGgt6rsYKaMHgmFSDdKJYPs3ZLeTrvU0M5CxzJquHSEx5dgJ3M73NCLGzVq4NUagBluzgHVTVlH6OL6JlGitwjuSRxrFnCcV55Xqg0M5tM2N0_WE3eW-y5uYKrmdVxfkJz5J6NSeEv17qj4gqfmx4HbABvRNi_nTFi4-mpB1YXSMfVw",
+			"type": "string"
+		}
+	]
+}
