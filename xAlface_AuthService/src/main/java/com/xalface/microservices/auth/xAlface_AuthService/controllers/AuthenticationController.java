@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "auth")
 public class AuthenticationController {
-    
+
     @Autowired
     RegisterProducer registerProducer;
 
@@ -92,6 +92,11 @@ public class AuthenticationController {
                 
             }
 
+            RegisterDTO rawCredentials = new RegisterDTO(credentials.getName(), 
+                                                        credentials.getUsername(), 
+                                                        credentials.getPassword(), 
+                                                        credentials.getRole(), 
+                                                        credentials.getDepartment());
             String encryptedPassword = passwordEncoder.encode(credentials.getPassword());
             credentials.setPassword(encryptedPassword);
 
@@ -99,13 +104,16 @@ public class AuthenticationController {
                 TeacherDTO teacher = new TeacherDTO();
                 teacher.setName(credentials.getName());
                 teacher.setUsername(credentials.getUsername());
-                teacher.setPassword(credentials.getPassword());
                 teacher.setDepartment(credentials.getDepartment());
+                teacher.setPassword(credentials.getPassword());
+
+                // Envia a mensagem para o RabbitMQ
+                registerProducer.sendMessage(rawCredentials);
+                // Aplica a senha criptografada ao objeto teacher
+                teacher.setPassword(credentials.getPassword());
 
                 TeacherDTO savedTeacher = userServiceClient.saveTeacher(teacher);
 
-                // Envia a mensagem para o RabbitMQ
-                registerProducer.sendMessage(credentials);
                 return ResponseEntity.ok().body("Professor registrado com sucesso: " + savedTeacher.getName());
 
             } else if (credentials.getRole().equals("ROLE_ADMIN")) {
@@ -113,10 +121,13 @@ public class AuthenticationController {
                 admin.setName(credentials.getName());
                 admin.setUsername(credentials.getUsername());
                 admin.setPassword(credentials.getPassword());
+                // Envia a mensagem para o RabbitMQ
+                registerProducer.sendMessage(rawCredentials);
+                
+                admin.setPassword(credentials.getPassword());
 
                 AdminDTO savedAdmin = userServiceClient.saveAdmin(admin);
-                // Envia a mensagem para o RabbitMQ
-                registerProducer.sendMessage(credentials);
+                
                 return ResponseEntity.ok().body("Administrador registrado com sucesso: " + savedAdmin.getName());
 
             } else {
